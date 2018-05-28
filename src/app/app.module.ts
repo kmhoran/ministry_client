@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ContactComponent } from './contact/contact.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { NavigationComponent } from './shared/navigation.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ResourcesComponent } from './resources/resources.component';
     AboutComponent,
     ScheduleComponent,
     ContactComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { ResourcesComponent } from './resources/resources.component';
       {path: 'resources', component: ResourcesComponent},
       {path: '', redirectTo: 'about', pathMatch: 'full'},
       {path: '**', redirectTo: 'about', pathMatch: 'full'}
-    ])
+    ], {useHash: true})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md fixed-top"
+     [ngClass]="{'collapsed': isNavCollapsed}">
+    
+  <div id="top-nav">
+  <button class="navbar-toggler navbar-right"
+        type="button"
+        (click)="toggleNavCollapse()">
+    <span class="fas fa-bars"></span>      
+  </button>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div [collapse]="isNavCollapsed"
+       class="collapse navbar-collapse">
+     <ul class="nav navbar-nav navbar-nav mr-auto navbar-right">
+      <li class="nav-item">
+        <a [routerLink]="['/about']"
+           class="menu-item"
+           [ngClass]="{'active':domain=='about'}"
+           (click)="closeNavCollapse()">About</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/schedule']"
+           class="menu-item"
+           [ngClass]="{'active':domain=='schedule'}"
+           (click)="closeNavCollapse()">Schedule</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/contact']"
+           class="menu-item"
+           [ngClass]="{'active':domain=='contact'}"
+           (click)="closeNavCollapse()">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/resources']"
+           class="menu-item"
+           [ngClass]="{'active':domain=='resources'}"
+           (click)="closeNavCollapse()">Resources</a>
+      </li>
+    </ul>
+  </div>
+<!-- /.navbar-collapse -->
+</div>
+</nav>

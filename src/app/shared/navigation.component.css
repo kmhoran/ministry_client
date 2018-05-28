@@ -1,21 +1,3 @@
-
-
-body{
-   min-height: 100%;
-}
-.banner-logo{
-    padding-top: 1em;
-    width: 100%;
-    display: block;
-    text-align: center;
-}
-.banner-logo>img{
-    width: 5em;
-}
-.banner-logo>.title{
-    margin-top: 0.5em;
-  font-size: 1.7em;
-}
 #top-nav{
     width: 100%;
     display: block;
@@ -23,13 +5,18 @@ body{
     top: 9em;
     text-align: center;
     width: 100%;
-    border-bottom: 1px solid red;
+}
+.navbar-collapse{
+    width: 100%;
 }
 .navbar-nav{
     margin: auto;
+
+    text-align: center;
 }
 .navbar-nav>li{
-    margin: 0 2em;
+    padding: 0.5em 2em;
+    background-color: #fff;
 }
 
 .navbar-nav>li>a {
@@ -37,37 +24,43 @@ body{
     color: #555;
     font-weight: 500;
     font-size: 1.2em;
-    padding: 0.5em 0;
-    margin: 0 0.3em;
+    /* padding: 0.3em 0;
+    margin: 0 0.3em; */
+    width: 100%;
     user-select: none;
     outline: 0;
     user-select: none;
     outline: none;
+    background-color: #fff;
 }
 
 .navbar-nav>li>a:hover {
     color: #000;
     text-decoration: none;
 }
-.page-content{
-    width: 100%;
-    position: relative;
-    top: 4em;
-    overflow: hidden;
-    
+.navbar-nav>li>a.active {
+    color: #0D47A1;
 }
 .navbar-toggler{
+    float: right;
     font-size: 1.5em;
-    color: #fff;
-    border: 1px solid rgb(100, 100, 100);
-    background-color: rgba(0,0,0,0.2);
+    color: rgb(100,100,100);
     outline: none;
 }
 .navbar-toggler:hover{
+    color: #fff;
     background-color: rgb(100, 100, 100);
 }
+
 @media only screen and (max-width: 600px) {
-    .banner-logo{
-        display: none;
+    .navbar.collapsed{
+      border-bottom: 1px solid #CFD8DC;
+    }
+    .navbar-nav{
+        width: 100%;
+    }
+    #top-nav{
+        text-align: left;
+        top: 0;
     }
   }
