@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  isNavCollapsed = true;
+
+  toggleNavCollapse(): void {
+    this.isNavCollapsed = !this.isNavCollapsed;
+  }
+
+  closeMenuCollapse(): void {
+    this.isNavCollapsed = true;
+  }
 }

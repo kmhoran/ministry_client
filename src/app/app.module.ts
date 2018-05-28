@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
@@ -19,7 +20,15 @@ import { ResourcesComponent } from './resources/resources.component';
   ],
   imports: [
     BrowserModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    RouterModule.forRoot([
+      {path: 'about', component: AboutComponent},
+      {path: 'schedule', component: ScheduleComponent},
+      {path: 'contact', component: ContactComponent},
+      {path: 'resources', component: ResourcesComponent},
+      {path: '', redirectTo: 'about', pathMatch: 'full'},
+      {path: '**', redirectTo: 'about', pathMatch: 'full'}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
