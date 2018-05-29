@@ -11,29 +11,12 @@
   <div [collapse]="isNavCollapsed"
        class="collapse navbar-collapse">
      <ul class="nav navbar-nav navbar-nav mr-auto navbar-right">
-      <li class="nav-item">
-        <a [routerLink]="['/about']"
+      <li class="nav-item"
+          *ngFor="let menu of menuOptions">
+        <a [routerLink]="[menu.pages[0]?.url]"
            class="menu-item"
-           [ngClass]="{'active':domain=='about'}"
-           (click)="closeNavCollapse()">About</a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/schedule']"
-           class="menu-item"
-           [ngClass]="{'active':domain=='schedule'}"
-           (click)="closeNavCollapse()">Schedule</a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/contact']"
-           class="menu-item"
-           [ngClass]="{'active':domain=='contact'}"
-           (click)="closeNavCollapse()">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/resources']"
-           class="menu-item"
-           [ngClass]="{'active':domain=='resources'}"
-           (click)="closeNavCollapse()">Resources</a>
+           [ngClass]="{'active':domain==menu.id}"
+           (click)="closeNavCollapse()">{{menu.name}}</a>
       </li>
     </ul>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IMenu } from './imenu';
 
 @Component({
   selector: 'app-navigation',
@@ -7,32 +8,60 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
   isNavCollapsed = true;
-  domainOptions = ['about', 'schedule', 'contact', 'resources'];
-  subdomainOptions = {
-    'about': [
+  menu: IMenu;
+  menuOptions: IMenu[] = [
+    {
+    id: 'about',
+    name: 'About',
+    pages: [
       {
         id: 'our-conference',
         name: 'Our Conference',
-        url: '[/about/our-conference]'
+        url: '/about/our-conference'
       }, {
         id: 'history',
         name: 'History',
-        url: '[/about/history]'
+        url: '/about/history'
        }, {
          id: 'past-event',
          name: 'Past Events',
-         url: '[/about/past-events]'
+         url: '/about/past-events'
        }, {
          id: 'gallery',
          name: 'Gallery',
-         url: '[/about/gallery]'
+         url: '/about/gallery'
        }, {
          id: 'wish-list',
          name: 'Wish List',
-         url: '[/about/wish-list]'
+         url: '/about/wish-list'
        }
     ]
-  };
+  }, {
+    id: 'schedule',
+    name: 'Schedule',
+    pages: [{
+      id: 'shedule',
+      name: 'Shedule',
+      url: '/schedule'
+    }]
+  }, {
+    id: 'contact',
+    name: 'Contact',
+    pages: [{
+      id: 'contact',
+      name: 'Contact',
+      url: '/contact'
+    }]
+  }, {
+    id: 'resources',
+    name: 'Resources',
+    pages: [{
+      id: 'resources',
+      name: 'Resources',
+      url: '/resources'
+    }]
+  },
+];
 
   subdomain: any;
 
@@ -42,13 +71,7 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (!this.domainOptions.includes(this.domain)) {
-        this.domain = null;
-    }
-    if (this.domain) {
-      this.subdomain = this.subdomainOptions[this.domain];
-      console.log('subdomain: ', this.subdomain);
-    }
+    this.menu = this.menuOptions[0];
   }
 
   toggleNavCollapse(): void {
