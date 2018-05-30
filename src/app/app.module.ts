@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -26,7 +26,7 @@ import { OurConferenceComponent } from './about/our-conference.component';
   imports: [
     BrowserModule,
     CollapseModule.forRoot(),
-    BsDropdownModule.forRoot(),
+    AccordionModule.forRoot(),
     RouterModule.forRoot([
       {path: 'about/our-conference', component: OurConferenceComponent},
       {path: 'schedule', component: ScheduleComponent},
