@@ -23,7 +23,7 @@ export class NavigationComponent implements OnInit {
         name: 'History',
         url: '/about/history'
        }, {
-         id: 'past-event',
+         id: 'past-events',
          name: 'Past Events',
          url: '/about/past-events'
        }, {
@@ -40,8 +40,8 @@ export class NavigationComponent implements OnInit {
     id: 'schedule',
     name: 'Schedule',
     pages: [{
-      id: 'shedule',
-      name: 'Shedule',
+      id: 'schedule',
+      name: 'Schedule',
       url: '/schedule'
     }]
   }, {
@@ -71,7 +71,17 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.menu = this.menuOptions[0];
+    this.menu = null;
+    for (let i = 0; i < this.menuOptions.length; i++) {
+      if (this.menuOptions[i].id === this.domain) {
+        this.menu = this.menuOptions[i];
+        console.log('menu: ', this.menu);
+        break;
+      }
+    }
+    if (!this.menu) {
+      console.log('no menu: ', this.domain);
+    }
   }
 
   toggleNavCollapse(): void {

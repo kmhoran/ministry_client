@@ -10,7 +10,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div [collapse]="isNavCollapsed"
        class="collapse navbar-collapse">
-     <ul class="nav navbar-nav navbar-nav mr-auto navbar-right">
+     <ul class="nav navbar-nav mr-auto navbar-right">
       <li class="nav-item"
           *ngFor="let menu of menuOptions">
         <a [routerLink]="[menu.pages[0]?.url]"
@@ -22,7 +22,17 @@
   </div>
 <!-- /.navbar-collapse -->
 </div>
-<div class="lower-nav">
-  text
-</div>
+
+</nav>
+<nav class="navbar navbar-expand-md fixed-top">
+  <div id="lower-nav">
+    <ul class="nav navbar-nav mr-auto navbar-right">
+      <li class="nav-item"
+          *ngFor="let menuPage of menu.pages">
+        <a [routerLink]="[menuPage?.url]"
+           class="menu-item"
+           [ngClass]="{'active':page==menuPage.id}">{{menuPage.name}}</a>
+      </li>
+    </ul>
+  </div>
 </nav>

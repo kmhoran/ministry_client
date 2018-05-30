@@ -12,6 +12,10 @@ import { ContactComponent } from './contact/contact.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { NavigationComponent } from './shared/navigation.component';
 import { OurConferenceComponent } from './about/our-conference.component';
+import { HistoryComponent } from './about/history.component';
+import { PastEventsComponent } from './about/past-events.component';
+import { GalleryComponent } from './about/gallery.component';
+import { WishListComponent } from './about/wish-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { OurConferenceComponent } from './about/our-conference.component';
     ContactComponent,
     ResourcesComponent,
     NavigationComponent,
-    OurConferenceComponent
+    OurConferenceComponent,
+    HistoryComponent,
+    PastEventsComponent,
+    GalleryComponent,
+    WishListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +37,10 @@ import { OurConferenceComponent } from './about/our-conference.component';
     AccordionModule.forRoot(),
     RouterModule.forRoot([
       {path: 'about/our-conference', component: OurConferenceComponent},
+      {path: 'about/history', component: HistoryComponent},
+      {path: 'about/past-events', component: PastEventsComponent},
+      {path: 'about/gallery', component: GalleryComponent},
+      {path: 'about/wish-list', component: WishListComponent},
       {path: 'schedule', component: ScheduleComponent},
       {path: 'contact', component: ContactComponent},
       {path: 'resources', component: ResourcesComponent},
