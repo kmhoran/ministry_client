@@ -14,12 +14,33 @@
      <ul class="nav navbar-nav mr-auto navbar-right">
       <li class="nav-item"
           *ngFor="let menu of menuOptions">
+        <span *ngIf="menu.pages?.length > 1"
+              dropdown>
+          <a dropdownToggle
+             (click)="false"
+             class="menu-item"
+             [ngClass]="{'active':domain==menu.id}">{{menu.name}}
+            <ul *dropdownMenu 
+                class="dropdown-menu"
+                role="menu">
+              <li class="dropdown-line"
+                  *ngFor="let pageMenu of menu.pages">
+                <a class="dropdown-item"
+                   (click)="closeNavCollapse()"
+                   [routerLink]="[pageMenu.url]">{{pageMenu.name}}</a>
+              </li>
+            </ul>
+            </a>
+        </span>
         <a [routerLink]="[menu.pages[0]?.url]"
+           *ngIf="menu.pages.length == 1"
            class="menu-item"
            [ngClass]="{'active':domain==menu.id}"
            (click)="closeNavCollapse()">{{menu.name}}</a>
       </li>
+      <!-- nav-item -->
     </ul>
+    <!-- navbar-nav -->
   </div>
 <!-- /.navbar-collapse -->
 </div>
