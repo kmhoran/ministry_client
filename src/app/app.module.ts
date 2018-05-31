@@ -4,6 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+import { MarkdownOptionsFactory } from '../app/shared/MarkdownOptionsFactory';
+
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -43,6 +46,12 @@ import { SavesComponent } from './resources/saves.component';
     BrowserModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useFactory: MarkdownOptionsFactory,
+      },
+    }),
     RouterModule.forRoot([
       {path: 'about/our-conference', component: OurConferenceComponent},
       {path: 'about/history', component: HistoryComponent},
