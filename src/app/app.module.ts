@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -16,6 +16,10 @@ import { HistoryComponent } from './about/history.component';
 import { PastEventsComponent } from './about/past-events.component';
 import { GalleryComponent } from './about/gallery.component';
 import { WishListComponent } from './about/wish-list.component';
+import { ArchDioceseComponent } from './resources/arch-diocese.component';
+import { LaCountyComponent } from './resources/la-county.component';
+import { CulverCityComponent } from './resources/culver-city.component';
+import { SavesComponent } from './resources/saves.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +33,16 @@ import { WishListComponent } from './about/wish-list.component';
     HistoryComponent,
     PastEventsComponent,
     GalleryComponent,
-    WishListComponent
+    WishListComponent,
+    ArchDioceseComponent,
+    LaCountyComponent,
+    CulverCityComponent,
+    SavesComponent
   ],
   imports: [
     BrowserModule,
     CollapseModule.forRoot(),
-    AccordionModule.forRoot(),
+    BsDropdownModule.forRoot(),
     RouterModule.forRoot([
       {path: 'about/our-conference', component: OurConferenceComponent},
       {path: 'about/history', component: HistoryComponent},
@@ -43,7 +51,10 @@ import { WishListComponent } from './about/wish-list.component';
       {path: 'about/wish-list', component: WishListComponent},
       {path: 'schedule', component: ScheduleComponent},
       {path: 'contact', component: ContactComponent},
-      {path: 'resources', component: ResourcesComponent},
+      {path: 'resources/culver-city', component: CulverCityComponent},
+      {path: 'resources/la-county', component: LaCountyComponent},
+      {path: 'resources/arch-diocese', component: ArchDioceseComponent},
+      {path: 'resources/saves', component: SavesComponent},
       {path: '', redirectTo: 'about/our-conference', pathMatch: 'full'},
       {path: '**', redirectTo: 'about/our-conference', pathMatch: 'full'}
     ], {useHash: true})

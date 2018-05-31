@@ -45,20 +45,32 @@ export class NavigationComponent implements OnInit {
       url: '/schedule'
     }]
   }, {
+    id: 'resources',
+    name: 'Resources',
+    pages: [{
+      id: 'culver-city',
+      name: 'Culver City',
+      url: '/resources/culver-city'
+    }, {
+      id: 'la-county',
+      name: 'LA County',
+      url: '/resources/la-county'
+    }, {
+      id: 'arch-diocese',
+      name: 'Arch Diocese',
+      url: '/resources/arch-diocese'
+    }, {
+      id: 'saves',
+      name: 'S.A.V.E.S.',
+      url: '/resources/saves'
+    }]
+  }, {
     id: 'contact',
     name: 'Contact',
     pages: [{
       id: 'contact',
       name: 'Contact',
       url: '/contact'
-    }]
-  }, {
-    id: 'resources',
-    name: 'Resources',
-    pages: [{
-      id: 'resources',
-      name: 'Resources',
-      url: '/resources'
     }]
   },
 ];
