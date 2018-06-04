@@ -1,10 +1,10 @@
-export interface IMenu {
+export class Menu {
     id: string;
     name: string;
-    pages: IPage[];
+    pages: Page[];
 }
 
-export interface IPage {
+export class Page {
     id: string;
     name: string;
     url: string;

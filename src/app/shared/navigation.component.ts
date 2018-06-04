@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IMenu } from './imenu';
+import { Menu } from './menu';
 
 @Component({
   selector: 'app-navigation',
@@ -8,8 +8,8 @@ import { IMenu } from './imenu';
 })
 export class NavigationComponent implements OnInit {
   isNavCollapsed = true;
-  menu: IMenu;
-  menuOptions: IMenu[] = [
+  menu: Menu;
+  menuOptions: Menu[] = [
     {
     id: 'about',
     name: 'About',
@@ -87,7 +87,7 @@ export class NavigationComponent implements OnInit {
     for (let i = 0; i < this.menuOptions.length; i++) {
       if (this.menuOptions[i].id === this.domain) {
         this.menu = this.menuOptions[i];
-        console.log('menu: ', this.menu);
+        // console.log('menu: ', this.menu);
         break;
       }
     }
