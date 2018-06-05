@@ -12,8 +12,15 @@ body{
     display: block;
     text-align: center;
 }
-.banner-logo>img{
+.banner-logo img{
     width: 5em;
+    
+}
+.banner-logo .logo-frame{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 .banner-logo>.title{
     margin-top: 0.5em;
