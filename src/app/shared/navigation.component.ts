@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Menu } from './menu';
+import { IMenu } from './imenu';
 
 @Component({
   selector: 'app-navigation',
@@ -8,8 +8,8 @@ import { Menu } from './menu';
 })
 export class NavigationComponent implements OnInit {
   isNavCollapsed = true;
-  menu: Menu;
-  menuOptions: Menu[] = [
+  menu: IMenu;
+  menuOptions: IMenu[] = [
     {
     id: 'about',
     name: 'About',

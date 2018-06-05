@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Menu } from './shared/menu';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +9,7 @@ export class AppComponent {
   title = 'app';
   isNavCollapsed = true;
 
-  constructor(menu: Menu) {
-    console.log('menu', menu);
-  }
+  constructor() {}
   toggleNavCollapse(): void {
     this.isNavCollapsed = !this.isNavCollapsed;
   }

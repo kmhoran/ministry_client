@@ -23,7 +23,6 @@ import { ArchDioceseComponent } from './resources/arch-diocese.component';
 import { LaCountyComponent } from './resources/la-county.component';
 import { CulverCityComponent } from './resources/culver-city.component';
 import { SavesComponent } from './resources/saves.component';
-import { Menu } from './shared/menu';
 
 @NgModule({
   declarations: [
@@ -69,10 +68,7 @@ import { Menu } from './shared/menu';
       {path: '**', redirectTo: 'about/our-conference', pathMatch: 'full'}
     ], {useHash: true})
   ],
-  providers: [ Menu, {
-    provide: Menu,
-    useValue: window['NAV']
-  } ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
