@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  svpdLogo: '../assets/images/svdp_logo.jpg'
+  svpdLogo: '../assets/images/svdp_logo.jpg',
+  serverUrl: 'http://127.0.0.1:8000/api/'
 };
 
 /*

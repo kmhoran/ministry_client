@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from 'selenium-webdriver/http';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { MarkdownOptionsFactory } from '../app/shared/MarkdownOptionsFactory';
-
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -44,6 +46,7 @@ import { SavesComponent } from './resources/saves.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
     MarkdownModule.forRoot({
@@ -68,7 +71,7 @@ import { SavesComponent } from './resources/saves.component';
       {path: '**', redirectTo: 'about/our-conference', pathMatch: 'full'}
     ], {useHash: true})
   ],
-  providers: [],
+  providers: [ CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

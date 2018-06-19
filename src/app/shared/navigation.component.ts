@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+
+import { NavigationService } from '../shared/navigation.service';
 import { IMenu } from './imenu';
+
 
 @Component({
   selector: 'app-navigation',
@@ -80,9 +83,11 @@ export class NavigationComponent implements OnInit {
   @Input() domain: string;
   @Input() page: string;
 
-  constructor() { }
+  constructor(private _navigation: NavigationService) { }
 
   ngOnInit() {
+    const nav = this._navigation.getNavigation();
+    console.log('got nav: ', nav);
     this.menu = null;
     for (let i = 0; i < this.menuOptions.length; i++) {
       if (this.menuOptions[i].id === this.domain) {
