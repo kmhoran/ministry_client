@@ -92,7 +92,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this.subscription = this._navigation.getNavigation()
     .subscribe(data => {
         nav = data;
-        console.log('got nav: ', nav;
+        console.log('got nav: ', JSON.stringify(nav));
     });
 
     this.menu = null;

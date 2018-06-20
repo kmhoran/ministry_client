@@ -23,23 +23,30 @@ constructor(private _cookieService: CookieService,
             private _http: HttpClient) { }
 
 getNavigation(): Observable<any> {
-  this._cookieService.deleteAll();
+
   if (!this._cookieService.check(this.cookieString)) {
     console.log('no cookies');
 
     this.httpGetNavigation()
     .subscribe((data: any) => {
-        console.log('data: ', data);
         this._cookieService.set(this.cookieString, data);
     });
 
-  } else {
-    console.log('Cookies', this._cookieService.get(this.cookieString));
   }
   return new Observable<any>((observer) => {
     observer.next(this._cookieService.get(this.cookieString));
+    observer.complete();
   });
 }
+
+
+setNavigation(): void {
+  this.httpGetNavigation()
+    .subscribe((data: any) => {
+        this._cookieService.set(this.cookieString, data);
+    });
+}
+
 
 httpGetNavigation(): Observable<any> {
   return this._http.get<any[]>(this.navigationUrl)
