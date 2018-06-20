@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaderResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -16,24 +16,29 @@ const httpOptions = {
 
 @Injectable()
 export class NavigationService {
-cookieString = 'pageCache';
-navigationUrl = environment.serverUrl + 'page-domains';
-constructor(private _cookieService: CookieService,
-            private _http: HttpClient,
-            private _zone: NgZone) { }
 
-getNavigation(): string {
+cookieString = 'pageCache';
+navigationUrl = environment.serverUrl + 'page-domains/';
+constructor(private _cookieService: CookieService,
+            private _http: HttpClient) { }
+
+getNavigation(): Observable<any> {
+  this._cookieService.deleteAll();
   if (!this._cookieService.check(this.cookieString)) {
     console.log('no cookies');
+
     this.httpGetNavigation()
     .subscribe((data: any) => {
-      this._zone.run(() => {
         console.log('data: ', data);
         this._cookieService.set(this.cookieString, data);
-      });
     });
+
+  } else {
+    console.log('Cookies', this._cookieService.get(this.cookieString));
   }
-  return this._cookieService.get(this.cookieString);
+  return new Observable<any>((observer) => {
+    observer.next(this._cookieService.get(this.cookieString));
+  });
 }
 
 httpGetNavigation(): Observable<any> {
@@ -54,6 +59,4 @@ httpGetNavigation(): Observable<any> {
       'Something bad happened; please try again later.'
     );
   }
-
-
 }
