@@ -1,4 +1,13 @@
-export interface IMenu {
+export class Menu {
+    domains: IPageDomain[];
+
+    constructor(domains: IPageDomain[]) {
+        this.domains = domains;
+    }
+}
+
+
+export interface IPageDomain {
     id: number;
     name: string;
     display: string;

@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { NavigationService } from '../shared/navigation.service';
 import { IMenu } from './imenu';
+import { Menu } from './menu';
 
 
 @Component({
@@ -16,66 +17,103 @@ export class NavigationComponent implements OnInit, OnDestroy {
   menu: IMenu;
   menuOptions: IMenu[] = [
     {
-    id: 'about',
-    name: 'About',
+    id: 0,
+    name: 'about',
+    display: 'About',
     pages: [
       {
-        id: 'our-conference',
-        name: 'Our Conference',
-        url: '/about/our-conference'
+        id: 0,
+        name: 'our-conference',
+        display: 'Our Conference',
+        url: '/about/our-conference',
+        pageType: 'document',
+        audience: 'public'
       }, {
-        id: 'history',
-        name: 'History',
-        url: '/about/history'
+        id: 1,
+        name: 'history',
+        display: 'History',
+        url: '/about/history',
+        pageType: 'document',
+        audience: 'public'
        }, {
-         id: 'past-events',
-         name: 'Past Events',
-         url: '/about/past-events'
+         id: 2,
+         name: 'past-events',
+         display: 'Past Events',
+         url: '/about/past-events',
+         pageType: 'document',
+         audience: 'public'
        }, {
-         id: 'gallery',
-         name: 'Gallery',
-         url: '/about/gallery'
+         id: 3,
+         name: 'gallery',
+         display: 'Gallery',
+         url: '/about/gallery',
+         pageType: 'document',
+         audience: 'public'
        }, {
-         id: 'wish-list',
-         name: 'Wish List',
-         url: '/about/wish-list'
+         id: 4,
+         name: 'wish-list',
+         display: 'Wish List',
+         url: '/about/wish-list',
+         pageType: 'document',
+         audience: 'public'
        }
     ]
   }, {
-    id: 'schedule',
-    name: 'Schedule',
+    id: 1,
+    name: 'schedule',
+    display: 'Schedule',
     pages: [{
-      id: 'schedule',
-      name: 'Schedule',
-      url: '/schedule'
+      id: 5,
+      name: 'schedule',
+      display: 'Schedule',
+      url: '/schedule',
+      pageType: 'document',
+      audience: 'public'
     }]
   }, {
-    id: 'resources',
-    name: 'Resources',
+    id: 2,
+    name: 'resources',
+    display: 'Resources',
     pages: [{
-      id: 'culver-city',
-      name: 'Culver City',
-      url: '/resources/culver-city'
+      id: 6,
+      name: 'culver-city',
+      display: 'Culver City',
+      url: '/resources/culver-city',
+      pageType: 'document',
+      audience: 'public'
     }, {
-      id: 'la-county',
-      name: 'LA County',
-      url: '/resources/la-county'
+      id: 7,
+      name: 'la-county',
+      display: 'LA County',
+      url: '/resources/la-county',
+      pageType: 'document',
+      audience: 'public'
     }, {
-      id: 'arch-diocese',
-      name: 'Arch Diocese',
-      url: '/resources/arch-diocese'
+      id: 8,
+      name: 'arch-diocese',
+      display: 'Arch Diocese',
+      url: '/resources/arch-diocese',
+      pageType: 'document',
+      audience: 'public'
     }, {
-      id: 'saves',
-      name: 'S.A.V.E.S.',
-      url: '/resources/saves'
+      id: 9,
+      name: 'saves',
+      display: 'S.A.V.E.S.',
+      url: '/resources/saves',
+      pageType: 'document',
+      audience: 'public'
     }]
   }, {
-    id: 'contact',
-    name: 'Contact',
+    id: 4,
+    name: 'contact',
+    display: 'Contact',
     pages: [{
-      id: 'contact',
-      name: 'Contact',
-      url: '/contact'
+      id: 10,
+      name: 'contact',
+      display: 'Contact',
+      url: '/contact',
+      pageType: 'document',
+      audience: 'public'
     }]
   },
 ];
@@ -90,14 +128,14 @@ export class NavigationComponent implements OnInit, OnDestroy {
   ngOnInit() {
     let nav = null;
     this.subscription = this._navigation.getNavigation()
-    .subscribe(data => {
+    .subscribe((data: Menu) => {
         nav = data;
-        console.log('got nav: ', JSON.stringify(nav));
+        console.log('got nav: ', data);
     });
 
     this.menu = null;
     for (let i = 0; i < this.menuOptions.length; i++) {
-      if (this.menuOptions[i].id === this.domain) {
+      if (this.menuOptions[i].name === this.domain) {
         this.menu = this.menuOptions[i];
         // console.log('menu: ', this.menu);
         break;

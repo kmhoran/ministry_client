@@ -22,7 +22,7 @@
           <a dropdownToggle
              (click)="false"
              class="menu-item"
-             [ngClass]="{'active':domain==menu.id}">{{menu.name}}
+             [ngClass]="{'active':domain==menu.name}">{{menu.name}}
             <ul *dropdownMenu 
                 class="dropdown-menu"
                 role="menu">
@@ -38,7 +38,7 @@
         <a [routerLink]="[menu.pages[0]?.url]"
            *ngIf="menu.pages.length == 1"
            class="menu-item"
-           [ngClass]="{'active':domain==menu.id}"
+           [ngClass]="{'active':domain==menu.name}"
            (click)="closeNavCollapse()">{{menu.name}}</a>
       </li>
       <!-- nav-item -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { environment } from '../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { NavigationService } from './shared/navigation.service';
@@ -9,20 +9,24 @@ import { NavigationService } from './shared/navigation.service';
   styleUrls: ['./app.component.css'],
   providers: [ NavigationService ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   cookieValue = 'UNKNOWN';
   title = 'app';
   svdpLogo = environment.svpdLogo;
   isNavCollapsed = true;
 
-  constructor(private _cookieService: CookieService) {}
+  constructor(private _cookieService: CookieService,
+              private _navService: NavigationService) {}
   toggleNavCollapse(): void {
     this.isNavCollapsed = !this.isNavCollapsed;
   }
 
   ngOnInit(): void {
-    this._cookieService.set('Test', 'Hello World!');
-    this.cookieValue = this._cookieService.get('Test');
+    this._navService.clearCookies();
+    this._navService.setNavigation();
+  }
+  ngOnDestroy(): void {
+    
   }
 
   closeMenuCollapse(): void {
